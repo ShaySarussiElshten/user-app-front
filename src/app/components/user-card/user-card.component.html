@@ -1,0 +1,11 @@
+<mat-card class="wrapper-card">
+    <mat-card-header>
+      <div mat-card-avatar class="card-header-image"></div>
+      <mat-card-title>{{ user.fullName }}</mat-card-title>
+      <mat-card-subtitle>{{ user.email }}</mat-card-subtitle>
+    </mat-card-header>
+    <div class="buttons-container">
+      <button mat-stroked-button (click)="editUser(user._id)">Edit</button>
+      <button mat-stroked-button (click)="deleteUser(user._id,$event)">Delete</button>
+    </div>
+  </mat-card>

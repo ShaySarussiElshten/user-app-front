@@ -1,0 +1,26 @@
+
+  <div class="btn-container">
+    <button mat-stroked-button (click)="createUser()">Create new user</button>
+  </div>
+  
+  <div class="card-grid">
+    <app-user-card 
+      *ngFor="let user of users" 
+      [user]="user" 
+      (click)="openDetails(user)" 
+      (usersUpdated)="handleUsersUpdated($event)"
+      [pageIndex]="pageIndex"
+      [pageSize]="pageSize"
+    >
+    </app-user-card>
+  </div>
+
+  <mat-paginator
+    *ngIf="users.length > 0"
+    [length]="totalUsers"
+    [pageSize]="pageSize"
+    [pageIndex]="pageIndex"
+    [pageSizeOptions]="pageSizeOptions"
+    (page)="onPageChange($event)"
+  >
+  </mat-paginator>

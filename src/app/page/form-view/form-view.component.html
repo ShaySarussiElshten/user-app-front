@@ -1,0 +1,30 @@
+<form [formGroup]="userForm" (ngSubmit)="onSubmit()">
+    <app-form-field 
+      [form]="userForm"
+      name="fullName"
+      label="Full Name"
+      errorMessage="Full Name is required">
+    </app-form-field>
+    <app-form-field 
+      [form]="userForm"
+      name="email"
+      label="Email"
+      errorMessage="Valid Email is required">
+    </app-form-field>
+    <app-form-field 
+      [form]="userForm"
+      name="address"
+      label="Addres"
+      errorMessage="Address is required">
+    </app-form-field>
+    <app-form-field 
+      [form]="userForm"
+      name="city"
+      label="City"
+      errorMessage="City is required">
+    </app-form-field>
+    <button mat-raised-button color="primary" type="submit" [disabled]="userForm.invalid || isLoading">
+      <mat-spinner *ngIf="isLoading" [diameter]="30" [strokeWidth]="4"></mat-spinner>
+      <span *ngIf="!isLoading">Submit</span>
+    </button>
+</form>
